@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xs:schema targetNamespace="http://example.org/ms"
+                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    elementFormDefault="qualified">
+
+    <xs:element name="UpdateProfile">
+        <xs:complexType>
+            <xs:sequence>
+                
+        <xs:element name="Profile" maxOccurs="unbounded" minOccurs="1">
+
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="UserName" >
+                    <xs:complexType>
+                                   <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="updation" use="required">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:pattern value="yes|no"/>
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+                                        </xs:extension>
+                                     </xs:simpleContent>
+                                </xs:complexType>
+                </xs:element>
+
+                <xs:element name="FullName">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="LAST-NAME" type="xs:string"/>
+                            <xs:element name="FIRST-NAME" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="date">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="datee" type="xs:integer"/>
+                            <xs:element name="month" >
+                                <xs:complexType>
+                                   <xs:simpleContent>
+                                       <xs:extension base="xs:integer" >
+                                          <xs:attribute name="year" type="xs:string"  fixed="2022"></xs:attribute>
+                                       </xs:extension>
+                                   </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="future" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="past" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="Email">
+               <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                         <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                       </xs:restriction>
+               </xs:simpleType>
+                            </xs:element>
+                <xs:element name="Gender" type="xs:string"/>
+                <xs:element name="Age">
+                   <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                             <xs:minInclusive value="20"/>
+                             <xs:maxInclusive value="35"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Phone">
+                      <xs:simpleType>
+                         <xs:restriction base="xs:integer">
+                            <xs:pattern value="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                </xs:element>
+                <xs:element name="Bio" type="xs:string"/>
+
+               
+               
+
+
+            </xs:sequence>
+            <xs:attribute name="uid" type="xs:ID"/>
+        </xs:complexType>
+     </xs:element>
+    </xs:sequence>
+</xs:complexType>
+    </xs:element>
+
+    <xs:element name="DB">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="location" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="employee_id" type="xs:ID"/>
+        </xs:complexType>
+    </xs:element>
+
+
+ 
+    </xs:schema>

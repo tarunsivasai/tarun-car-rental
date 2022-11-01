@@ -1,0 +1,75 @@
+<?xml version = "1.0"?>
+<!DOCTYPE UpdateProfile [
+<!ELEMENT UpdateProfile (Profile,DB)*>
+<!ELEMENT DB (location)*>
+<!ELEMENT Profile (UserName, 
+FullName, date,Email,
+Gender,Age,Phone,Bio)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT FullName (LAST-NAME,FIRST-NAME)+>
+<!ELEMENT LAST-NAME (#PCDATA)>
+<!ELEMENT FIRST-NAME (#PCDATA)>
+<!ELEMENT UserName ( #PCDATA )>
+<!ELEMENT date (datee,month,(future|past))>
+<!ELEMENT datee (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT future (#PCDATA)>
+<!ELEMENT past (#PCDATA)>
+<!ELEMENT Email (#PCDATA)>
+<!ELEMENT Gender (#PCDATA)>
+<!ELEMENT Age (#PCDATA)>
+<!ELEMENT Phone (#PCDATA)>
+<!ELEMENT Bio (#PCDATA)>
+
+<!ATTLIST Profile id ID #REQUIRED
+db_id IDREF #IMPLIED >
+<!ATTLIST UserName updation (yes | no) "yes">
+<!ATTLIST month year CDATA #FIXED "2022" >
+<!ATTLIST SchemeName country CDATA  #IMPLIED>
+<!ATTLIST DB employee_id ID #REQUIRED>
+]>
+<UpdateProfile>
+    <Profile id="s1" db_id="e123456">
+        <UserName updation="yes">
+             Tarun
+        </UserName>
+        <FullName><LAST-NAME >Sivasai</LAST-NAME>
+            <FIRST-NAME>Gajvalli</FIRST-NAME></FullName>
+        <date>
+            <datee>15</datee>
+            <month year="2022">09</month>
+            <future>yes</future>
+        </date>
+        <Email> tarunsivasaigajvallia@gmail.com </Email>
+        <Gender>male</Gender>
+        <Age >21</Age>
+        <Phone>8309058730</Phone>
+        <Bio>hi this is Tarun Gajvalli</Bio>
+
+    </Profile>  
+    <DB employee_id="e123456">
+        <location>boston</location>
+      </DB>
+      <Profile id="s2" db_id="e123457">
+        <UserName updation="yes">
+            Tarun
+             
+        </UserName>
+        <FullName><LAST-NAME >sriram</LAST-NAME>
+            <FIRST-NAME>jai</FIRST-NAME></FullName>
+        <date>
+            <datee>25</datee>
+            <month year="2022">09</month>
+            <future>yes</future>
+        </date>
+        <Email> tarunsivasaigajvallia@gmail.com </Email>
+        <Gender>male</Gender>
+        <Age >15</Age>
+        <Phone>8309058730</Phone>
+        <Bio>hi this is Tarun Gajvalli</Bio>
+
+    </Profile> 
+    <DB employee_id="e123457">
+        <location>paris</location>
+      </DB>
+</UpdateProfile>
